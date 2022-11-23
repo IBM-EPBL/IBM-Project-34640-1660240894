@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Compatibility | Blood Donors India</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="..\static\style_donor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+    <script>
+        (function ($) {
+            $.fn.counter = function () {
+                const $this = $(this),
+                    numberFrom = parseInt($this.attr('data-from')),
+                    numberTo = parseInt($this.attr('data-to')),
+                    delta = numberTo - numberFrom,
+                    deltaPositive = delta > 0 ? 1 : 0,
+                    time = parseInt($this.attr('data-time')),
+                    changeTime = 10;
+
+                let currentNumber = numberFrom,
+                    value = delta * changeTime / time;
+                var interval1;
+                const changeNumber = () => {
+                    currentNumber += value;
+                    //checks if currentNumber reached numberTo
+                    (deltaPositive && currentNumber >= numberTo) || (!deltaPositive && currentNumber <= numberTo) ? currentNumber = numberTo : currentNumber;
+                    this.text(parseInt(currentNumber));
+                    currentNumber == numberTo ? clearInterval(interval1) : currentNumber;
+                }
+
+                interval1 = setInterval(changeNumber, changeTime);
+            }
+        }(jQuery));
+
+        $(document).ready(function () {
+
+            $('.count-up').counter();
+
+            setTimeout(function () {
+                $('.count5').counter();
+            }, 3000);
+        });
+    </script>
+    <div id="top1" class="row"
+        style="background-color: #8c1406; margin-top: 0px;position:fixed;width: 100%;z-index: 999;">
+        <div class="topnav" id="myTopnav">
+            <a href="/">HOME</a>
+            <a href="/eligibility">ELIGIBILITY</a>
+            <a href="/compatibility">COMPATIBILITY</a>
+            <a href="/facts">BLOOD FACTS</a>
+            <a href="/register">DONOR REGISTRATION</a>
+            <a href="/search">SEARCH A DONOR</a>
+            <a href="/login">LOGIN</a>
+            <div style="float: right;">
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="background-color: #6A1208;padding-top: 55px;">
+        <div class="col-md-4" style="text-align: center;color: #f6f6f6;padding-top:50px;">
+            <h3>
+                <div>A Drop of water makes ocean.</div>
+                <div>A Unit of Blood SAVES LIFE.</div>
+            </h3>
+        </div>
+        <div class="col-md-4" style="text-align: center;">
+            <img src="..\static\images\blooddonors.png">
+        </div>
+        <div class="col-md-4 center" style="padding: 5px;">
+            <div
+                style="border-radius: 50%;background-color: yellow; height: 150px;width: 150px;margin-left: auto;margin-right: auto;">
+                <div class="count-up h1 text-center" data-from="10" data-to="9468" data-time="1000"
+                    style="padding-top: 45px;font-size:2rem;color:#6A1208;margin-top:30px;"></div>
+                <div style="color:#6A1208;">Active Donors</div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding-bottom: 10px;">
+        <div class="col-md-12 center">
+            <h3>Red Blood cell compatibility Table</h3>
+            <table border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#666666"
+                style="text-align:center">
+                <tr bgcolor="#FFFFFF" class="ubuntu-black-13-bold">
+                    <th>Recipient blood type</th>
+                    <th colspan="8">Donor red blood cells must be:</th>
+                </tr>
+                <tr>
+                    <td style="width:136px; background:#EFEFEF">O-</td>
+                    <td bgcolor="#FFFFFF">O-</td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                </tr>
+                <tr>
+                    <td style="background:#EFEFEF">O+</td>
+                    <td bgcolor="#FFFFFF">O-</td>
+                    <td bgcolor="#FFFFFF">O+</td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                </tr>
+                <tr>
+                    <td style="background:#EFEFEF">A-</td>
+                    <td bgcolor="#FFFFFF">O-</td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF">A-</td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                </tr>
+                <tr>
+                    <td style="background:#EFEFEF">A+</td>
+                    <td bgcolor="#FFFFFF">O-</td>
+                    <td bgcolor="#FFFFFF">O+</td>
+                    <td bgcolor="#FFFFFF">A-</td>
+                    <td bgcolor="#FFFFFF">A+</td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                </tr>
+                <tr>
+                    <td style="background:#EFEFEF">B-</td>
+                    <td bgcolor="#FFFFFF">O-</td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF">B-</td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                </tr>
+                <tr>
+                    <td style="background:#EFEFEF">B+</td>
+                    <td bgcolor="#FFFFFF">O-</td>
+                    <td bgcolor="#FFFFFF">O+</td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF">B-</td>
+                    <td bgcolor="#FFFFFF">B+</td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF"></td>
+                </tr>
+                <tr>
+                    <td style="background:#EFEFEF">AB-</td>
+                    <td bgcolor="#FFFFFF">O-</td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF">A-</td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF">B-</td>
+                    <td bgcolor="#FFFFFF"></td>
+                    <td bgcolor="#FFFFFF">AB-</td>
+                    <td bgcolor="#FFFFFF"></td>
+                </tr>
+                <tr>
+                    <td style="background:#EFEFEF">AB+</td>
+                    <td bgcolor="#FFFFFF">O-</td>
+                    <td bgcolor="#FFFFFF">O+</td>
+                    <td bgcolor="#FFFFFF">A-</td>
+                    <td bgcolor="#FFFFFF">A+</td>
+                    <td bgcolor="#FFFFFF">B-</td>
+                    <td bgcolor="#FFFFFF">B+</td>
+                    <td bgcolor="#FFFFFF">AB-</td>
+                    <td bgcolor="#FFFFFF">AB+</td>
+                </tr>
+            </table>
+            <br>
+            <table width="100%" border="0" cellpadding="5" cellspacing="0" class="ubuntu-red-18">
+                <tr>
+                    <td>
+                        <div align="center" class="tableheader">Plasma compatibility Table</div>
+                    </td>
+                </tr>
+            </table>
+            <table border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#666666" class="ubuntu-black-13">
+                <tr bgcolor="#FFFFFF" class="ubuntu-black-13-bold">
+                    <th>Recipient blood type</th>
+                    <th>Donor plasma must be:</th>
+                </tr>
+                <tr align="center">
+                    <td style="background:#EFEFEF">AB</td>
+                    <td colspan="4" bgcolor="#FFFFFF">AB</td>
+                </tr>
+                <tr align="center">
+                    <td style="background:#EFEFEF">A</td>
+                    <td colspan="4" bgcolor="#FFFFFF">A or AB</td>
+                </tr>
+                <tr align="center">
+                    <td style="background:#EFEFEF">B</td>
+                    <td colspan="4" bgcolor="#FFFFFF">B or AB</td>
+                </tr>
+                <tr align="center">
+                    <td style="background:#EFEFEF">O</td>
+                    <td colspan="4" bgcolor="#FFFFFF">O, A, B or AB</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <footer class="container-fluid text-center">
+        <div class="col-md-12"
+            style="background-color:#333; padding: 25px;color: #f6f6f6; line-height: 1.5;font-size: .8rem;">
+            <div class="col-md-6" style="padding-top:20px;">
+                <a href="tips.php">Tips</a> | <a href="refer.php">Refer a Friend</a> | <a href="privacy_policy.php">
+                    Privacy Policy</a>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <a href="https://facebook.com/BloodDonorsIndia" class="fa fa-facebook socialmedia"
+                        style="font-size:2rem;" target="_blank"></a> <a href="https://twitter.com/Blood_Donors_in/"
+                        class="fa fa-twitter socialmedia" style="font-size:2rem;" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 center" style="font-size: 0.7rem; background-color:#000; padding: 15px;color: #f6f6f6">©
+            2020 Copyright <a href="https://vindia.net" target="_blank">V India Technologies Private Limited</a></div>
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+            try {
+                var pageTracker = _gat._getTracker("UA-7225913-3");
+                pageTracker._trackPageview();
+            } catch (err) {
+            }</script>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+        </script>
+        <script>
+            window.watsonAssistantChatOptions = {
+              integrationID: "6043dfe7-5b99-49ee-99ed-2d05537340f9", // The ID of this integration.
+              region: "au-syd", // The region your integration is hosted in.
+              serviceInstanceID: "26b5b847-d411-43f0-af69-4cd200aed370", // The ID of your service instance.
+              onLoad: function(instance) { instance.render(); }
+            };
+            setTimeout(function(){
+              const t=document.createElement('script');
+              t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+              document.head.appendChild(t);
+            });
+          </script>
+    </footer>
+</body>
+
+</html>
