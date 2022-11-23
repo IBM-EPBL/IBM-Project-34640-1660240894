@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Blood Donors Login</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="..\static\style_donor.css">
+        <script src="https://www.google.com/recaptcha/api.js?render=6Le9iKQZAAAAAF64meSEqjRIqWkhlMBALyPhqHy7"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script>
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6Le9iKQZAAAAAF64meSEqjRIqWkhlMBALyPhqHy7', {action: 'login'}).then(function (token) {
+                    var recaptchaResponse = document.getElementById('recaptchaResponse');
+                    recaptchaResponse.value = token;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <script>
+    (function ($) {
+        $.fn.counter = function () {
+            const $this = $(this),
+                    numberFrom = parseInt($this.attr('data-from')),
+                    numberTo = parseInt($this.attr('data-to')),
+                    delta = numberTo - numberFrom,
+                    deltaPositive = delta > 0 ? 1 : 0,
+                    time = parseInt($this.attr('data-time')),
+                    changeTime = 10;
+
+            let currentNumber = numberFrom,
+                    value = delta * changeTime / time;
+            var interval1;
+            const changeNumber = () => {
+                currentNumber += value;
+                //checks if currentNumber reached numberTo
+                (deltaPositive && currentNumber >= numberTo) || (!deltaPositive && currentNumber <= numberTo) ? currentNumber = numberTo : currentNumber;
+                this.text(parseInt(currentNumber));
+                currentNumber == numberTo ? clearInterval(interval1) : currentNumber;
+            }
+
+            interval1 = setInterval(changeNumber, changeTime);
+        }
+    }(jQuery));
+
+    $(document).ready(function () {
+
+        $('.count-up').counter();
+
+        setTimeout(function () {
+            $('.count5').counter();
+        }, 3000);
+    });
+</script>
+<div id="top1" class="row" style="background-color: #8c1406; margin-top: 0px;position:fixed;width: 100%;z-index: 999;">
+    <div class="topnav" id="myTopnav">
+        <a href="/">HOME</a>
+            <a href="/eligibility">ELIGIBILITY</a>
+            <a href="/compatibility">COMPATIBILITY</a>
+            <a href="/facts">BLOOD FACTS</a>
+            <a href="/register">DONOR REGISTRATION</a>
+            <a href="/search">SEARCH A DONOR</a>
+            <a href="/login">LOGIN</a>     <div style="float: right;">
+            <a href="javascript:void(0);"  class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+        </div>
+    </div>
+</div>
+<div class="row" style="background-color: #6A1208;padding-top: 55px;">
+    <div class="col-md-4" style="text-align: center;color: #f6f6f6;padding-top:50px;">
+        <h3><div>A Drop of water makes ocean.</div>
+            <div>A Unit of Blood SAVES LIFE.</div></h3>
+    </div>
+    <div class="col-md-4" style="text-align: center;">
+        <img src="..\static\images\blooddonors.png">
+    </div>
+        <div class="col-md-4 center" style="padding: 5px;">
+        <div style="border-radius: 50%;background-color: yellow; height: 150px;width: 150px;margin-left: auto;margin-right: auto;">
+            <div class="count-up h1 text-center" data-from="10" data-to="9468" data-time="1000" style="padding-top: 45px;font-size:2rem;color:#6A1208;margin-top:30px;"></div>
+            <div style="color:#6A1208;">Active Donors</div>
+        </div>
+    </div>
+</div>        <div class="container">
+            <div class="login-box">
+                <div class="login-box-body">
+                    <p class="login-box-msg">Sign in to start your session</p>
+                    <form name="login_form" id="form1" method="post">
+                        <div class="form-group has-feedback">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email">
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+                        <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                        <div class="row center">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
+                        </div>
+
+                        <a href="forgot.php">I forgot my password</a><br>
+                        <a href="register.php" class="text-center">Register a new membership</a>
+                    </form>
+                </div>
+                <div class="form-group" style="color: #f6f6f6;"><strong></strong></div>
+            </div>
+        </div>
+        <footer class="container-fluid text-center">
+            <div class ="col-md-12" style="background-color:#333; padding: 25px;color: #f6f6f6; line-height: 1.5;font-size: .8rem;">
+    <div class="col-md-6" style="padding-top:20px;">
+        <a href="tips.php">Tips</a> | <a href="refer.php">Refer a Friend</a> |  <a href="privacy_policy.php"> Privacy Policy</a>
+    </div>
+    <div class="col-md-6">
+        <div>
+            <a href="https://facebook.com/BloodDonorsIndia" class="fa fa-facebook socialmedia" style="font-size:2rem;" target="_blank"></a>  <a href="https://twitter.com/Blood_Donors_in/" class="fa fa-twitter socialmedia" style="font-size:2rem;" target="_blank"></a>
+        </div>
+    </div>
+</div>
+<div class ="col-md-12 center" style="font-size: 0.7rem; background-color:#000; padding: 15px;color: #f6f6f6">© PNT2022TMID15066 <a href="https://vindia.net" target="_blank">Blood Donation</a></div>
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-7225913-3");
+        pageTracker._trackPageview();
+    } catch (err) {
+    }</script>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+<script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "6043dfe7-5b99-49ee-99ed-2d05537340f9", // The ID of this integration.
+      region: "au-syd", // The region your integration is hosted in.
+      serviceInstanceID: "26b5b847-d411-43f0-af69-4cd200aed370", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+        </footer>
+    </body>
+</html>
